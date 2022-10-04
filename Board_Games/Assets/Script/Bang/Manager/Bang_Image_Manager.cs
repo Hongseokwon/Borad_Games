@@ -58,6 +58,11 @@ public class Bang_Image_Manager : MonoBehaviour
         return Bang_Card[(int)_Card];
     }
 
+    public Sprite Get_Shape_Sprite(Bang_Game_Manager.BANG_CARD_SHAPE _Shape)
+    {
+        return Bang_Card_Shape[(int)_Shape];
+    }
+
 
     public Sprite[] Bang_Class = new Sprite[(int)Bang_Game_Manager.BANG_CLASS.END];
     public Sprite[] Bang_Character = new Sprite[(int)Bang_Game_Manager.BANG_CHARACTER.END];
