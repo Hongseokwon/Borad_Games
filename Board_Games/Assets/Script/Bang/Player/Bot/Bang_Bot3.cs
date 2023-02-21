@@ -7,7 +7,8 @@ public class Bang_Bot3 : Bang_Bot
     // Start is called before the first frame update
     void Start()
     {
-        
+        Player_Num = 3;
+        name = "Bot3";
     }
 
     // Update is called once per frame

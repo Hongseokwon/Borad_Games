@@ -34,7 +34,6 @@ public class Bang_Message_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Active_Message_List = new LinkedList<GameObject>();
     }
 
     // Update is called once per frame
@@ -45,41 +44,37 @@ public class Bang_Message_Manager : MonoBehaviour
 
     public void Create_Message(string _Message,int _Line)
     {
+        Move_Message(_Line);
+
         Message_List[Cnt % 11].SetActive(true);
         Message_List[Cnt % 11].GetComponent<Text>().text = _Message;
         Message_List[Cnt % 11].GetComponent<RectTransform>().sizeDelta = new Vector2(Size_X, Size_Y * _Line);
-        Message_List[Cnt % 11].GetComponent<RectTransform>().anchoredPosition = new Vector2(Pos_X, Pos_Y + (0.5f * _Line));
-
-        Move_Message(_Line);
-        Check_Message();
-
-        Active_Message_List.AddLast(Message_List[Cnt % 11]);
+        Message_List[Cnt % 11].GetComponent<RectTransform>().anchoredPosition = new Vector2(Pos_X, Pos_Y + (0.5f * _Line * Size_Y));
+        
+        Message_Cnt[Cnt % 11] = 0;
         ++Cnt;
     }
 
     private void Move_Message(int _Line)
     {
-        foreach(GameObject Obj in Active_Message_List)
+        for(int i=0; i<11;++i)
         {
-            Vector2 temp = Obj.GetComponent<RectTransform>().anchoredPosition;
-            temp.y += _Line * Size_Y;
-            Obj.GetComponent<RectTransform>().anchoredPosition = temp;
+            if(Message_List[i].activeSelf)
+            {
+                Vector2 temp = Message_List[i].GetComponent<RectTransform>().anchoredPosition;
+                temp.y += _Line * Size_Y;
+                Message_List[i].GetComponent<RectTransform>().anchoredPosition = temp;
+                Message_Cnt[i] += _Line;
+            }
+
+            if(Message_Cnt[i] > 9)
+                Message_List[i].SetActive(false);
+
         }
     }
-
-    private void Check_Message()
-    {
-        if (Active_Message_List.Count < 1 &&
-            Active_Message_List.First.Value.GetComponent<RectTransform>().anchoredPosition.y > 384)
-        {
-            Active_Message_List.First.Value.SetActive(false);
-            Active_Message_List.RemoveFirst();
-        }
-    }
-
-    private LinkedList<GameObject> Active_Message_List;
-
+    
     public GameObject[] Message_List;
+    private int[] Message_Cnt = new int[11];
 
     private int Cnt = 0;
     private float Size_X = 300f;

@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Game_List.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Bang.unity
+    path: Assets/Scenes/Bang/Bang.unity
     guid: d48436a7fa4b3394aa0e8aa047118c20
   - enabled: 1
-    path: Assets/Scenes/Bang_Lobby.unity
+    path: Assets/Scenes/Bang/Bang_Lobby.unity
     guid: c018e5924b99ec54fa1714df1ea0d1b0
   m_configObjects: {}

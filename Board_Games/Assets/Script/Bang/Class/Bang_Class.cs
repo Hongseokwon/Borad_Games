@@ -15,4 +15,11 @@ public class Bang_Class : MonoBehaviour
     {
         
     }
+
+
+    public Bang_Game_Manager.BANG_CLASS Get_Class() { return My_Class; }
+
+
+
+    public Bang_Game_Manager.BANG_CLASS My_Class;
 }

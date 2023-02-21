@@ -119,12 +119,15 @@ public class Bang_Prefab_Manager : MonoBehaviour
             case Bang_Game_Manager.BANG_CARD.END:
                 break;
         }
-
+        Temp_Card.transform.SetParent(Card_Parent.transform);
         Temp_Card.GetComponent<Bang_Card>().Set_Card(_Shape, _Num);
+        Temp_Card.GetComponent<Bang_Card>().Set_Card2();
         Temp_Card.GetComponent<Bang_Card>().Set_Sorting_Num(_Snum);
+        Temp_Card.AddComponent<Card_Image_Controller>();
 
         return Temp_Card;
     }
 
     public GameObject Card;
+    public GameObject Card_Parent;
 }

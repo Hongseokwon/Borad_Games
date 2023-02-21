@@ -1,0 +1,2 @@
+C:\Users\Administrator\Desktop\seokwon\Unity_Board_Games\Borad_Games\Board_Games\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\seokwon\Unity_Board_Games\Borad_Games\Board_Games\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
